@@ -8,8 +8,7 @@ function NavTabs() {
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand as={Link} to="/">
-        <img src="imgs/brewcrew.png" alt="brand icon" width="50" height="50" />{" "}
-        Brew Crew
+        <img src="imgs/brewcrew.png" alt="brand icon" width="75" height="75" />{" "}
       </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
