@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 
 // const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -14,8 +15,10 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
+require("./routes/userRoute.js")(app);
+
 // Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/");
 
 // Start the API server
 app.listen(PORT, function () {
