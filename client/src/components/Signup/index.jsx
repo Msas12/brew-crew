@@ -10,7 +10,7 @@ function Signup() {
     fetch("http://localhost:3004/api/signup", {
       method: "POST",
       body: JSON.stringify({
-        email: username,
+        username: username,
         password: password,
       }),
       headers: {

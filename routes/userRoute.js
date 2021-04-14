@@ -1,6 +1,6 @@
 // Requiring our models and passport as we've configured it
 const User = require("../models/user");
-const passport = require("../config/passport");
+const passport = require("passport");
 const bcrypt = require("bcryptjs");
 
 module.exports = function (app) {
@@ -11,7 +11,7 @@ module.exports = function (app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.header("Access-Control-Allow-Origin", "*");
     res.json({
-      email: req.user.email,
+      username: req.user.username,
       id: req.user.id,
     });
   });
@@ -27,7 +27,7 @@ module.exports = function (app) {
     );
     User.create(
       {
-        username: req.body.email,
+        username: req.body.username,
         password: encryptedPassword,
       },
       (err, user) => {
