@@ -26,7 +26,8 @@ function Login() {
   return (
     <div>
       <div className="mt-4">
-        <h2 className="mx-auto">Welcome to Brew Crew! Sign in Here:</h2>
+        <h2 className="text-center">Welcome to Brew Crew!</h2>
+        <h2 className="text-center">Sign in Here:</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <Container className="mx-auto mt-3 px-5">
@@ -52,14 +53,16 @@ function Login() {
               />
             </Col>
           </Row>
-          <button
-            className="btn btn-warning"
-            type="submit"
-            onSubmit={(e) => handleSubmit()}
-          >
-            Submit
-          </button>
-          <p>
+          <div className="d-flex justify-content-center">
+            <button
+              className="btn btn-warning"
+              type="submit"
+              onSubmit={(e) => handleSubmit()}
+            >
+              Submit
+            </button>
+          </div>
+          <p className="text-center mt-2">
             Or Sign Up<Link to="/signup"> Here:</Link>
           </p>
         </Container>
