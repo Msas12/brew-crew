@@ -8,22 +8,24 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch("http://localhost:3004/api/signup", {
-      body: {
+      method: "POST",
+      body: JSON.stringify({
         email: username,
         password: password,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
-      method: "POST",
-      mode: "no-cors",
     }).then((data) => {
-      console.log(data);
+      console.log(data.body);
     });
-    console.log(username, password);
   };
 
   return (
     <div>
       <div className="mt-4">
-        <h2 className="mx-auto">Welcome to Brew Crew!</h2>
+        <h2 className="text-center">Sign Up for Brew Crew!</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <Container className="mx-auto mt-3 px-5">
@@ -49,9 +51,15 @@ function Signup() {
               />
             </Col>
           </Row>
-          <button className="btn btn-warning" type="submit">
-            Submit
-          </button>
+          <div className="d-flex justify-content-center">
+            <button
+              className="btn btn-warning"
+              type="submit"
+              onSubmit={(e) => handleSubmit()}
+            >
+              Submit
+            </button>
+          </div>
         </Container>
       </form>
     </div>

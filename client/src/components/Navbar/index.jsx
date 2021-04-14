@@ -66,14 +66,14 @@ function NavTabs() {
           </Nav.Link>
           <Nav.Link
             as={Link}
-            to="/signup"
+            to="/login"
             className={
-              location.pathname === "/signup"
+              location.pathname === "/login"
                 ? "nav-link active mx-auto"
                 : "nav-link mx-auto"
             }
           >
-            Login/Signup
+            Login
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>

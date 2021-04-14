@@ -4,3 +4,12 @@
 .active {
   color: #d4af49 !important;
 }
+
+.searchForm {
+  max-width: 70%;
+  margin: auto;
+}
+
+.searchBtn {
+  float: right;
+}
