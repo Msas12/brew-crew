@@ -1,33 +1,42 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
+import { useUserContext } from "../../utils/GlobalState";
 
 function Login() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const [errors, setErrors] = useState();
+  const [state, dispatch] = useUserContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch("http://localhost:3004/api/login", {
       method: "POST",
       body: JSON.stringify({
-        email: username,
+        username: username,
         password: password,
       }),
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
       },
-    }).then((data) => {
+    }).then((data, err) => {
       console.log(data.body);
+      // dispatch({ type: "login", user: { username } });
+      setErrors("Password is incorrect");
     });
   };
-
+  console.log(state);
+  if (state.user) {
+    return <Redirect to="/" />;
+  }
   return (
     <div>
       <div className="mt-4">
         <h2 className="text-center">Welcome to Brew Crew!</h2>
         <h2 className="text-center">Sign in Here:</h2>
+        {errors && <div>There was an error {errors}</div>}
       </div>
       <form onSubmit={handleSubmit}>
         <Container className="mx-auto mt-3 px-5">

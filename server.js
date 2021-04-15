@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const passportConfig = require("./config/passport");
+const passport = require("passport");
 
 // const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -18,9 +20,16 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// Initialize Passport and restore authentication state, if any, from the
+// session.
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Add routes, both API and view
 require("./routes/userRoute.js")(app);
 app.use(cors());
+
 app.use(routes);
 
 // Connect to the Mongo DB
