@@ -1,24 +1,28 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { InputGroup, FormControl, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function SearchBar() {
   return (
-    <Form className="searchForm">
-      <Form.Group controlId="formBasicEmail">
-        <Form.Label>Brewery Search</Form.Label>
-        <Form.Control type="email" placeholder="Enter a City or State" />
-        <Button
+    <InputGroup className="mt-5 mb-3 searchForm">
+    <FormControl
+      placeholder="Enter a City or State"
+      aria-label="Enter a City or State"
+      aria-describedby="Brewery Search"
+    />
+    <InputGroup.Append>
+      <Button
         className="searchBtn"
         variant="primary"
         type="submit"
-        style={{ backgroundColor: "#d4af49", border: "none" }}
+        style={{ backgroundColor: "#D4AF49", border: "none" }}
       >
-        Search
+        <FontAwesomeIcon icon={faSearch} />
       </Button>
-      </Form.Group>
-      
-    </Form>
-  );
+    </InputGroup.Append>
+  </InputGroup>
+  )
 }
 
 export default SearchBar;
