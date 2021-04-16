@@ -8,6 +8,7 @@ import Favorites from "./pages/Favorites";
 import LoginPage from "./pages/Login";
 import { UserProvider } from "./utils/GlobalState";
 
+
 function App() {
   return (
     <UserProvider>
