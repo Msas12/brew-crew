@@ -5,8 +5,8 @@ import Brewery from '../components/Brewery'
 function Home() {
   return (
 <main>
-  <SearchBar/>
-  <Brewery />
+  <SearchBar setBreweries={setBrewieres}/>
+  <Brewery breweries={breweries}/>
 
 </main>
   )

@@ -1,20 +1,22 @@
 import React, { useRef } from "react";
 import { InputGroup, Button, FormControl } from "react-bootstrap";
-import searchBrewery from '../../utils/API'
+import {searchBrewery} from '../../utils/API'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function SearchBar() {
 
   const searchText = useRef("")
-
   const handleSubmit = (e) => {
     e.preventDefault()
     if ('') {
       alert("Please enter correct city or state")
     } else {
       const newSearch = (searchText.current.value)
-      searchBrewery(newSearch)
+      console.log('Hey we are searching for', newSearch)
+      searchBrewery(newSearch).then(({data: breweries})=>{
+        console.log("WILL IT WORK?", breweries)
+      })
     }
   }
 
@@ -24,6 +26,7 @@ function SearchBar() {
         placeholder="Enter a City or State"
         aria-label="Enter a City or State"
         aria-describedby="Brewery Search"
+        ref={searchText}
       />
       <InputGroup.Append>
         <Button
