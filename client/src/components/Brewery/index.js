@@ -2,10 +2,6 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 
 const Brewery = () => {
-
-    
-
-
     return (
         <div className="container">
             <Card>
