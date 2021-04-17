@@ -3,7 +3,7 @@ const BASEURL = "https://api.openbrewerydb.org/breweries/search?query=";
 
 const searchBrewery = (query)  => {
     console.log('hello?')
-    return axios.get(BASEURL + query)
+    return axios.get(BASEURL + encodeURIComponent(query))
 }
 const addBrewery = (breweryToAdd) => {
   console.log('hello we are going to add  this brewery', breweryToAdd)

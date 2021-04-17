@@ -7,6 +7,8 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "login":
       return { user: action.user };
+    case "setBreweries":
+      return { ...state, breweries: action.breweries };
     default:
       throw new Error(`Invalid action type: ${action.type}`);
   }
