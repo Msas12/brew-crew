@@ -21,26 +21,29 @@ const Brewery = ({ brewery }) => {
 
   return (
     <Card className="bg-dark text-light">
-      <Card.Body className="text-center">
-        <Card.Title tag="h5">{brewery.name}</Card.Title>
-        <Card.Subtitle tag="h6" className="mb-2 text-center text-muted">
-          {brewery.city}, {brewery.state}
-        </Card.Subtitle>
-      </Card.Body>
+      <Card.Title className="text-center mt-3" tag="h5">
+        {brewery.name}
+      </Card.Title>
+      <Card.Subtitle
+        className="text-center"
+        tag="h6"
+        className="mb-2 text-center text-muted"
+      >
+        {brewery.city}, {brewery.state}
+      </Card.Subtitle>
 
       <Card.Body>
         <OpengraphReactComponent
-          className="mx-auto"
+          className="text-center"
           site={brewery.website_url}
           appId="a40315e9-aa31-4aca-93b0-189ca53eff7c"
-          loader={
-            <FontAwesomeIcon className="mx-auto" size="2x" icon={faBeer} spin />
-          }
+          loader={<FontAwesomeIcon size="2x" icon={faBeer} spin />}
+          alt={"./brewcrew.png"}
           size={"small"}
         />
       </Card.Body>
 
-      <Card.Body className="mx-auto">
+      <Card.Footer className="text-center w-100">
         <Card.Link href="#">
           <FontAwesomeIcon size="2x" icon={faDirections} />
         </Card.Link>
@@ -50,7 +53,7 @@ const Brewery = ({ brewery }) => {
         <Card.Link href="#">
           <FontAwesomeIcon size="2x" icon={faPhone} />
         </Card.Link>
-      </Card.Body>
+      </Card.Footer>
     </Card>
   );
 };
