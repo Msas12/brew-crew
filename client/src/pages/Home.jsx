@@ -10,8 +10,8 @@ function Home() {
   const [state, _] = useUserContext();
   return (
     <main>
-      <SearchBar />
       <Container>
+        <SearchBar />
         <Row lg={3} md={2} sm={1} xs={1}>
           {!state.breweries
             ? ""
