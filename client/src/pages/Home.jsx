@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SearchBar from "../components/SearchBar";
 import Brewery from "../components/Brewery";
 import { useUserContext } from "../utils/GlobalState";
@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 
 function Home() {
-  const [state, _] = useUserContext();
+  const [state] = useUserContext();
   return (
     <main>
       <Container>

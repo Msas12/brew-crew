@@ -24,11 +24,7 @@ const Brewery = ({ brewery }) => {
       <Card.Title className="text-center mt-3" tag="h5">
         {brewery.name}
       </Card.Title>
-      <Card.Subtitle
-        className="text-center"
-        tag="h6"
-        className="mb-2 text-center text-muted"
-      >
+      <Card.Subtitle tag="h6" className="mb-2 text-center text-muted">
         {brewery.city}, {brewery.state}
       </Card.Subtitle>
 
