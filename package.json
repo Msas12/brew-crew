@@ -14,6 +14,7 @@
     "jquery": "^3.6.0",
     "mongodb": "^3.6.5",
     "mongoose": "^5.12.3",
+    "opengraph-react": "^1.3.12",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "popper.js": "^1.16.1"

@@ -1,28 +1,59 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import OpengraphReactComponent from "opengraph-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faDirections,
+  faGlobe,
+  faPhone,
+  faBeer,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Brewery = ({ brewery }) => {
+  // const handleDirections = (latitude, longitude) => {
+  //   const url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
+  //   window.open(url, '_blank');
+  // };
+
+  // const handleWebsite = () => {
+  //   window.open(website_url, '_blank');
+  // };
+
   return (
-    <div className="container">
-      <Card>
-        <Card.Body>
-          <Card.Title tag="h5">{brewery.name}</Card.Title>
-          <Card.Subtitle tag="h6" className="mb-2 text-muted">
-            {brewery.type}
-          </Card.Subtitle>
-        </Card.Body>
-        <img width="100%" src="/assets/318x180.svg" alt="Card image cap" />
-        <Card.Body>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Card.Link href="#">Card Link</Card.Link>
-          <Card.Link href="#">Another Link</Card.Link>
-        </Card.Body>
-      </Card>
-    </div>
+    <Card className="bg-dark text-light">
+      <Card.Body className="text-center">
+        <Card.Title tag="h5">{brewery.name}</Card.Title>
+        <Card.Subtitle tag="h6" className="mb-2 text-center text-muted">
+          {brewery.city}, {brewery.state}
+        </Card.Subtitle>
+      </Card.Body>
+
+      <Card.Body>
+        <OpengraphReactComponent
+          className="mx-auto"
+          site={brewery.website_url}
+          appId="a40315e9-aa31-4aca-93b0-189ca53eff7c"
+          loader={
+            <FontAwesomeIcon className="mx-auto" size="2x" icon={faBeer} spin />
+          }
+          size={"small"}
+        />
+      </Card.Body>
+
+      <Card.Body className="mx-auto">
+        <Card.Link href="#">
+          <FontAwesomeIcon size="2x" icon={faDirections} />
+        </Card.Link>
+        <Card.Link href="#">
+          <FontAwesomeIcon size="2x" icon={faGlobe} />
+        </Card.Link>
+        <Card.Link href="#">
+          <FontAwesomeIcon size="2x" icon={faPhone} />
+        </Card.Link>
+      </Card.Body>
+    </Card>
   );
 };
 // {"id":12697,"obdb_id":"missouri-beer-company-o-fallon","name":"Missouri Beer Company","brewery_type":"micro","street":"22 W Industrial Dr","address_2":null,"address_3":null,"city":"O Fallon","state":"Missouri","county_province":null,"postal_code":"63366-1926","country":"United States","longitude":"-90.75261","latitude":"38.805938","phone":"6362946672","website_url":"http://www.mobeerco.com","updated_at":"2018-08-11T21:38:09.000Z","created_at":"2018-07-24T01:33:41.000Z"}
+
 export default Brewery;

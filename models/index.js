@@ -1,3 +1,3 @@
-module.exports= {
-    Brewery: require("")
+module.exports = {
+  Brewery: require("./brewery"),
 };
