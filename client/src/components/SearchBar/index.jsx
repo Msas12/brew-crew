@@ -6,8 +6,9 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useUserContext } from "../../utils/GlobalState";
 
 function SearchBar() {
-  const [dispatch] = useUserContext();
+  const [_, dispatch] = useUserContext();
   const searchText = useRef("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if ("") {

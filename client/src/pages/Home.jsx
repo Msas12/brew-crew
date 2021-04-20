@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 
 function Home() {
-  const [state] = useUserContext();
+  const [state, _] = useUserContext();
   return (
     <main>
       <Container>
