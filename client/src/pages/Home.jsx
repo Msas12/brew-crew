@@ -12,12 +12,12 @@ function Home() {
     <main>
       <Container>
         <SearchBar />
-        <Row lg={3} md={2} sm={1} xs={1}>
+        <Row xl={3} lg={2} md={2} sm={1} xs={1}>
           {!state.breweries
             ? ""
             : state.breweries.map((brewery) => {
                 return (
-                  <Col className="mb-3">
+                  <Col key={brewery.id} className="mb-3">
                     <Brewery key={brewery.id} brewery={brewery} />
                   </Col>
                 );
