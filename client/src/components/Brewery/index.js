@@ -9,6 +9,7 @@ import {
   faBeer,
 } from "@fortawesome/free-solid-svg-icons";
 
+
 const Brewery = ({ brewery }) => {
   // const handleDirections = (latitude, longitude) => {
   //   const url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
@@ -30,7 +31,7 @@ const Brewery = ({ brewery }) => {
 
       <Card.Body>
         <OpengraphReactComponent
-          className="text-center"
+          className="w-responsive text-center mx-auto p-3 mt-2"
           site={brewery.website_url}
           appId="a40315e9-aa31-4aca-93b0-189ca53eff7c"
           loader={<FontAwesomeIcon size="2x" icon={faBeer} spin />}
