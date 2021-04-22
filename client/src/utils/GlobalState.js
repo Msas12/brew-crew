@@ -17,7 +17,7 @@ const reducer = (state, action) => {
 };
 
 const UserProvider = ({ value = null, ...props }) => {
-  const [state, dispatch] = useReducer(reducer, { user: value, index: 1 });
+  const [state, dispatch] = useReducer(reducer, { user: value, index: 0 });
 
   return <Provider value={[state, dispatch]} {...props} />;
 };

@@ -17,6 +17,9 @@ function Home() {
     });
   };
 
+  console.log(state.breweries);
+  console.log(state.index);
+
   return (
     <main>
       <Container>
@@ -24,7 +27,7 @@ function Home() {
         <Row xl={3} lg={2} md={2} sm={1} xs={1}>
           {!state.breweries
             ? ""
-            : state.breweries[state.index - 1 /* a number*/].map((brewery) => {
+            : state.breweries[state.index].map((brewery) => {
                 return (
                   <Col key={brewery.id} className="mb-3">
                     <Brewery key={brewery.id} brewery={brewery} />
@@ -33,17 +36,27 @@ function Home() {
               })}
         </Row>
         {!state.breweries ? (
-          "waiting for my brews"
+          ""
         ) : (
-          <p>{state.breweries[state.index - 1].website_url}</p>
+          <p>{state.breweries[state.index].website_url}</p>
         )}
       </Container>
       {/* dynamically generate buttons based on breweries array length */}
-      {!state.breweries
-        ? ""
-        : state.breweries.map((brewery, index) => {
-            <button onClick={updateIndex}>{index + 1}</button>;
-          })}
+      <div className="row justify-content-center">
+        {!state.breweries
+          ? ""
+          : state.breweries.map((brewery, index) => {
+              return (
+                <button
+                  className="m-1 btn"
+                  style={{ backgroundColor: "#d4af49" }}
+                  onClick={updateIndex}
+                >
+                  {index}
+                </button>
+              );
+            })}
+      </div>
     </main>
   );
 }
