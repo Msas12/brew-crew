@@ -9,13 +9,15 @@ const reducer = (state, action) => {
       return { user: action.user };
     case "setBreweries":
       return { ...state, breweries: action.breweries };
+    case "iterateIndex":
+      return { ...state, index: action.payload };
     default:
       throw new Error(`Invalid action type: ${action.type}`);
   }
 };
 
 const UserProvider = ({ value = null, ...props }) => {
-  const [state, dispatch] = useReducer(reducer, { user: value });
+  const [state, dispatch] = useReducer(reducer, { user: value, index: 1 });
 
   return <Provider value={[state, dispatch]} {...props} />;
 };

@@ -7,11 +7,14 @@ const OpenGraph = (props) => {
     let URL = encodeURIComponent(props.url);
     axios
       .get(
-        `https://opengraph.io/api/1.1/site/${URL}?app_id=a40315e9-aa31-4aca-93b0-189ca53eff7c`
+        `https://opengraph.io/api/1.1/site/${URL}?app_id=77d352cb-7d58-48e2-b7c0-0f2806ee2352	`
       )
       .then((data) => {
         console.log("abc", data);
         setState({ og: data.data.htmlInferred });
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, []);
   return (

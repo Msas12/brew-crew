@@ -7,7 +7,16 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 
 function Home() {
-  const [state, _] = useUserContext();
+  const [state, dispatch] = useUserContext();
+  const updateIndex = (e) => {
+    e.preventDefault();
+    console.log(e.target.textContent);
+    dispatch({
+      type: "iterateIndex",
+      payload: e.target.textContent, // will evaluate to the button text
+    });
+  };
+
   return (
     <main>
       <Container>
@@ -15,7 +24,7 @@ function Home() {
         <Row xl={3} lg={2} md={2} sm={1} xs={1}>
           {!state.breweries
             ? ""
-            : state.breweries.map((brewery) => {
+            : state.breweries[state.index - 1 /* a number*/].map((brewery) => {
                 return (
                   <Col key={brewery.id} className="mb-3">
                     <Brewery key={brewery.id} brewery={brewery} />
@@ -23,7 +32,18 @@ function Home() {
                 );
               })}
         </Row>
+        {!state.breweries ? (
+          "waiting for my brews"
+        ) : (
+          <p>{state.breweries[state.index - 1].website_url}</p>
+        )}
       </Container>
+      {/* dynamically generate buttons based on breweries array length */}
+      {!state.breweries
+        ? ""
+        : state.breweries.map((brewery, index) => {
+            <button onClick={updateIndex}>{index + 1}</button>;
+          })}
     </main>
   );
 }

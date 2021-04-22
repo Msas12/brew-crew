@@ -45,12 +45,14 @@ const Brewery = ({ brewery }) => {
             </p>
           </div>
         ) : (
-          <OpenGraph url={brewery.website_url} />
+          <OpenGraph
+            url={brewery.website_url}
+            loader={<FontAwesomeIcon size="2x" icon={faBeer} spin />}
+          />
           // <OpengraphReactComponent
           //   className="text-center"
           //   site={brewery.website_url}
           //   appId="a40315e9-aa31-4aca-93b0-189ca53eff7c"
-          //   loader={<FontAwesomeIcon size="2x" icon={faBeer} spin />}
           //   size={"small"}
           // />
         )}

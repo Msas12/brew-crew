@@ -18,6 +18,9 @@ function SearchBar() {
       console.log("Hey we are searching for", newSearch);
       searchBrewery(newSearch).then(({ data: breweries }) => {
         console.log("WILL IT WORK?", breweries);
+        // group breweies array into group of 10
+        // not this [all the mf brewereies]
+        // this [[brewery 1-10], [brewery 11-20], [brewry 21-30]]
         dispatch({
           type: "setBreweries",
           breweries,
