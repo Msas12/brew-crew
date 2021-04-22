@@ -33,9 +33,6 @@ function SearchBar() {
         aria-label="Enter a City or State"
         aria-describedby="Brewery Search"
         ref={searchText}
-        onKeyPress={event => {
-          if (event.key === "Enter"){
-            handleSubmit(event);}}}
       />
       <InputGroup.Append>
         <Button
