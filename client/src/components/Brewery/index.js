@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import OpengraphReactComponent from "opengraph-react";
+// import OpengraphReactComponent from "opengraph-react";
+import OpenGraph from "../OpenGraph";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDirections,
@@ -8,6 +9,7 @@ import {
   faPhone,
   faBeer,
 } from "@fortawesome/free-solid-svg-icons";
+import "./style.css";
 
 const Brewery = ({ brewery }) => {
   // const handleDirections = (latitude, longitude) => {
@@ -20,7 +22,7 @@ const Brewery = ({ brewery }) => {
   // };
 
   return (
-    <Card className="bg-dark text-light">
+    <Card className="bg-dark text-light h-100">
       <Card.Title className="text-center mt-3" tag="h5">
         {brewery.name}
       </Card.Title>
@@ -28,15 +30,32 @@ const Brewery = ({ brewery }) => {
         {brewery.city}, {brewery.state}
       </Card.Subtitle>
 
-      <Card.Body>
-        <OpengraphReactComponent
-          className="text-center"
-          site={brewery.website_url}
-          appId="a40315e9-aa31-4aca-93b0-189ca53eff7c"
-          loader={<FontAwesomeIcon size="2x" icon={faBeer} spin />}
-          alt={"./brewcrew.png"}
-          size={"small"}
-        />
+      <Card.Body className="mx-auto" style={{ margin: "0 auto" }}>
+        {!brewery.website_url ? (
+          <div className="row">
+            <img
+              className="w-50 mt-4"
+              src={`${process.env.PUBLIC_URL}/imgs/localbrewery.png`}
+            />
+            <p
+              className="mt-4 ml-2 textWrapperSmall"
+              style={{ fontSize: "12px" }}
+            >
+              Website currently not provided by Brewery
+            </p>
+          </div>
+        ) : (
+          <OpenGraph
+            url={brewery.website_url}
+            loader={<FontAwesomeIcon size="2x" icon={faBeer} spin />}
+          />
+          // <OpengraphReactComponent
+          //   className="text-center"
+          //   site={brewery.website_url}
+          //   appId="a40315e9-aa31-4aca-93b0-189ca53eff7c"
+          //   size={"small"}
+          // />
+        )}
       </Card.Body>
 
       <Card.Footer className="text-center w-100">
