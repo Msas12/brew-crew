@@ -25,16 +25,28 @@ const OpenGraph = (props) => {
         <div className="outerWrapperSmall">
           <div style={{ flex: 1 }}>
             <div className={"imgWrapperSmall"}>
-              <img
-                className={"responsiveImage"}
-                src={state.og.image}
-                alt={"alt"}
-              />
+              {!state.og.image ? (
+                <img
+                  className="w-100"
+                  src={`${process.env.PUBLIC_URL}/imgs/localbrewery.png`}
+                />
+              ) : (
+                <img
+                  className={"responsiveImage"}
+                  src={state.og.image}
+                  alt={"alt"}
+                />
+              )}
             </div>
           </div>
           <div className={"textWrapperSmall"}>
             <div className={"siteNameLinkWrapper"}>
-              <a href={props.url}>{state.og.site_name}</a>
+              <a
+                style={{ fontSize: "14px", color: "#d4af49" }}
+                href={props.url}
+              >
+                {state.og.site_name}
+              </a>
             </div>
             {/* <div className={"titleWrapper"}>
              {goodOffer && this.renderPrice(goodOffer, resultsToUse)}

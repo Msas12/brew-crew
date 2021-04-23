@@ -35,6 +35,7 @@ const mongoose = require("mongoose");
 const UserSchema = new mongoose.Schema({
   username: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true },
+  favorites: { type: Array },
 });
 
 const User = mongoose.model("User", UserSchema);

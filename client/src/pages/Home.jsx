@@ -8,12 +8,13 @@ import Col from "react-bootstrap/Col";
 
 function Home() {
   const [state, dispatch] = useUserContext();
-  const updateIndex = (e) => {
+  const updateIndex = (e, index) => {
     e.preventDefault();
+    console.log(index);
     console.log(e.target.textContent);
     dispatch({
       type: "iterateIndex",
-      payload: e.target.textContent, // will evaluate to the button text
+      payload: index, // will evaluate to the button text
     });
   };
 
@@ -48,11 +49,12 @@ function Home() {
           : state.breweries.map((brewery, index) => {
               return (
                 <button
+                  key={index}
                   className="m-1 btn"
                   style={{ backgroundColor: "#d4af49" }}
-                  onClick={updateIndex}
+                  onClick={(e) => updateIndex(e, index)}
                 >
-                  {index}
+                  {index + 1}
                 </button>
               );
             })}

@@ -8,18 +8,31 @@ import {
   faGlobe,
   faPhone,
   faBeer,
+  faHeart as fasHeart,
 } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 import "./style.css";
 
 const Brewery = ({ brewery }) => {
-  // const handleDirections = (latitude, longitude) => {
-  //   const url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
-  //   window.open(url, '_blank');
-  // };
+  const handleDirections = (latitude, longitude) => {
+    const url = `https://www.google.com/maps/dir/?api=1&destination=${brewery.latitude},${brewery.longitude}`;
+    window.open(url, "_blank");
+  };
+  const getFormattedPhoneNumber = (phone) => {
+    var cleaned = ("" + phone).replace(/\D/g, "");
+    var match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+      var intlCode = match[1] ? "+1 " : "";
+      return [intlCode, "(", match[2], ") ", match[3], "-", match[4]].join("");
+    }
+    return null;
+  };
 
-  // const handleWebsite = () => {
-  //   window.open(website_url, '_blank');
-  // };
+  const handlePhone = (phone) => {
+    const telephoneNumber = getFormattedPhoneNumber(brewery.phone);
+    const url = "tel:" + telephoneNumber;
+    window.open(url, "_blank");
+  };
 
   return (
     <Card className="bg-dark text-light h-100">
@@ -34,7 +47,7 @@ const Brewery = ({ brewery }) => {
         {!brewery.website_url ? (
           <div className="row">
             <img
-              className="w-50 mt-4"
+              className="w-25 h-25 ml-5 mt-4"
               src={`${process.env.PUBLIC_URL}/imgs/localbrewery.png`}
             />
             <p
@@ -49,29 +62,36 @@ const Brewery = ({ brewery }) => {
             url={brewery.website_url}
             loader={<FontAwesomeIcon size="2x" icon={faBeer} spin />}
           />
-          // <OpengraphReactComponent
-          //   className="text-center"
-          //   site={brewery.website_url}
-          //   appId="a40315e9-aa31-4aca-93b0-189ca53eff7c"
-          //   size={"small"}
-          // />
         )}
       </Card.Body>
 
       <Card.Footer className="text-center w-100">
         <Card.Link href="#">
-          <FontAwesomeIcon size="2x" icon={faDirections} />
+          <FontAwesomeIcon
+            style={{ color: "#d4af49" }}
+            size="2x"
+            icon={faDirections}
+            onClick={handleDirections}
+          />
         </Card.Link>
         <Card.Link href="#">
-          <FontAwesomeIcon size="2x" icon={faGlobe} />
+          <FontAwesomeIcon
+            style={{ color: "#d4af49" }}
+            size="2x"
+            icon={faPhone}
+            onClick={handlePhone}
+          />
         </Card.Link>
         <Card.Link href="#">
-          <FontAwesomeIcon size="2x" icon={faPhone} />
+          <FontAwesomeIcon
+            style={{ color: "#d4af49" }}
+            size="2x"
+            icon={farHeart}
+          />
         </Card.Link>
       </Card.Footer>
     </Card>
   );
 };
-// {"id":12697,"obdb_id":"missouri-beer-company-o-fallon","name":"Missouri Beer Company","brewery_type":"micro","street":"22 W Industrial Dr","address_2":null,"address_3":null,"city":"O Fallon","state":"Missouri","county_province":null,"postal_code":"63366-1926","country":"United States","longitude":"-90.75261","latitude":"38.805938","phone":"6362946672","website_url":"http://www.mobeerco.com","updated_at":"2018-08-11T21:38:09.000Z","created_at":"2018-07-24T01:33:41.000Z"}
 
 export default Brewery;

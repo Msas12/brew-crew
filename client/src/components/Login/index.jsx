@@ -7,7 +7,7 @@ function Login() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [errors, setErrors] = useState();
-  const [state, _] = useUserContext();
+  const [state, dispatch] = useUserContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +23,8 @@ function Login() {
       },
     }).then((data, err) => {
       console.log(data.body);
-      // dispatch({ type: "login", user: { username } });
+      console.log(err);
+      dispatch({ type: "login", user: { username } });
       setErrors("Password is incorrect");
     });
   };
