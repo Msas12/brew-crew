@@ -35,8 +35,12 @@ function Login() {
   return (
     <div>
       <div className="mt-4">
-        <h2 className="text-center">Welcome to Brew Crew!</h2>
-        <h2 className="text-center">Sign in Here:</h2>
+        <h2 className="text-center" style={{ color: "#d4af49" }}>
+          Welcome to Brew Crew!
+        </h2>
+        <h2 className="text-center" style={{ color: "#d4af49" }}>
+          Sign in Here:
+        </h2>
         {errors && <div>There was an error {errors}</div>}
       </div>
       <form onSubmit={handleSubmit}>
@@ -65,15 +69,20 @@ function Login() {
           </Row>
           <div className="d-flex justify-content-center">
             <button
-              className="btn btn-warning"
+              className="btn"
+              style={{ backgroundColor: "#d4af49" }}
               type="submit"
               onSubmit={(e) => handleSubmit()}
             >
               Submit
             </button>
           </div>
-          <p className="text-center mt-2">
-            Or Sign Up<Link to="/signup"> Here:</Link>
+          <p className="text-light text-center mt-2">
+            Or Sign Up
+            <Link style={{ color: "#d4af49" }} to="/signup">
+              {" "}
+              Here
+            </Link>
           </p>
         </Container>
       </form>

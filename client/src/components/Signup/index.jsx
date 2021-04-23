@@ -25,7 +25,9 @@ function Signup() {
   return (
     <div>
       <div className="mt-4">
-        <h2 className="text-center">Sign Up for Brew Crew!</h2>
+        <h2 className="text-center" style={{ color: "#d4af49" }}>
+          Sign Up for Brew Crew!
+        </h2>
       </div>
       <form onSubmit={handleSubmit}>
         <Container className="mx-auto mt-3 px-5">
@@ -53,7 +55,8 @@ function Signup() {
           </Row>
           <div className="d-flex justify-content-center">
             <button
-              className="btn btn-warning"
+              className="btn"
+              style={{ backgroundColor: "#d4af49" }}
               type="submit"
               onSubmit={(e) => handleSubmit()}
             >
