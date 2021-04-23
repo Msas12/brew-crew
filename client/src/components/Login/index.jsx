@@ -24,6 +24,7 @@ function Login() {
     }).then((data, err) => {
       console.log(data.body);
       console.log(err);
+      localStorage.setItem("user", JSON.stringify(data.body));
       dispatch({ type: "login", user: { username } });
       setErrors("Password is incorrect");
     });

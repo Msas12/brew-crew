@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { Redirect, useHistory } from "react-router-dom";
 
 function Signup() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  let history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +21,8 @@ function Signup() {
       },
     }).then((data) => {
       console.log(data.body);
+      history.push("/login");
+      // dispatch({ type: "signedup", user: { username } });
     });
   };
 
