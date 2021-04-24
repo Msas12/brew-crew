@@ -6,10 +6,12 @@ function Signup() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   let history = useHistory();
+  const apiBaseUrl =
+    process.env.NODE_ENV === "development" ? "localhost:3004" : "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3004/api/signup", {
+    fetch(apiBaseUrl + "api/signup", {
       method: "POST",
       body: JSON.stringify({
         username: username,
