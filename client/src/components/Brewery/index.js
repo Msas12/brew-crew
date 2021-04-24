@@ -9,6 +9,7 @@ import {
   faHeart as fasHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
+import { faLyft as farLyft } from "@fortawesome/free-brands-svg-icons";
 import "./style.css";
 
 const Brewery = ({ brewery }) => {
@@ -29,6 +30,11 @@ const Brewery = ({ brewery }) => {
   const handlePhone = (phone) => {
     const telephoneNumber = getFormattedPhoneNumber(brewery.phone);
     const url = "tel:" + telephoneNumber;
+    window.open(url, "_blank");
+  };
+
+  const handleLyft = () => {
+    const url = "https://www.lyft.com/"
     window.open(url, "_blank");
   };
 
@@ -78,6 +84,14 @@ const Brewery = ({ brewery }) => {
             size="2x"
             icon={faPhone}
             onClick={handlePhone}
+          />
+        </Card.Link>
+        <Card.Link href="#">
+          <FontAwesomeIcon
+            style={{ color: "#d4af49" }}
+            size="2x"
+            icon={farLyft}
+            onClick={handleLyft}
           />
         </Card.Link>
         <Card.Link href="#">
