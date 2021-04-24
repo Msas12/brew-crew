@@ -1,11 +1,9 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-// import OpengraphReactComponent from "opengraph-react";
 import OpenGraph from "../OpenGraph";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDirections,
-  faGlobe,
   faPhone,
   faBeer,
   faHeart as fasHeart,
