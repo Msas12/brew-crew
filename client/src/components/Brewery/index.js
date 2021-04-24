@@ -34,7 +34,7 @@ const Brewery = ({ brewery }) => {
   };
 
   const handleLyft = () => {
-    const url = "https://www.lyft.com/"
+    const url = "https://www.lyft.com/";
     window.open(url, "_blank");
   };
 
@@ -72,6 +72,7 @@ const Brewery = ({ brewery }) => {
       <Card.Footer className="text-center w-100">
         <Card.Link href="#">
           <FontAwesomeIcon
+            title="Directions"
             style={{ color: "#d4af49" }}
             size="2x"
             icon={faDirections}
@@ -80,6 +81,7 @@ const Brewery = ({ brewery }) => {
         </Card.Link>
         <Card.Link href="#">
           <FontAwesomeIcon
+            title="Call Brewery"
             style={{ color: "#d4af49" }}
             size="2x"
             icon={faPhone}
@@ -88,6 +90,7 @@ const Brewery = ({ brewery }) => {
         </Card.Link>
         <Card.Link href="#">
           <FontAwesomeIcon
+            title="Lyft"
             style={{ color: "#d4af49" }}
             size="2x"
             icon={farLyft}
@@ -96,6 +99,7 @@ const Brewery = ({ brewery }) => {
         </Card.Link>
         <Card.Link href="#">
           <FontAwesomeIcon
+            title="Favorite"
             style={{ color: "#d4af49" }}
             size="2x"
             icon={farHeart}
