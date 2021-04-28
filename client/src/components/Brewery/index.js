@@ -9,6 +9,7 @@ import {
   faHeart as fasHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
+import { faLyft as farLyft } from "@fortawesome/free-brands-svg-icons";
 import "./style.css";
 
 const Brewery = ({ brewery }) => {
@@ -29,6 +30,11 @@ const Brewery = ({ brewery }) => {
   const handlePhone = (phone) => {
     const telephoneNumber = getFormattedPhoneNumber(brewery.phone);
     const url = "tel:" + telephoneNumber;
+    window.open(url, "_blank");
+  };
+
+  const handleLyft = () => {
+    const url = "https://www.lyft.com/";
     window.open(url, "_blank");
   };
 
@@ -66,6 +72,7 @@ const Brewery = ({ brewery }) => {
       <Card.Footer className="text-center w-100">
         <Card.Link href="#">
           <FontAwesomeIcon
+            title="Directions"
             style={{ color: "#d4af49" }}
             size="2x"
             icon={faDirections}
@@ -74,6 +81,7 @@ const Brewery = ({ brewery }) => {
         </Card.Link>
         <Card.Link href="#">
           <FontAwesomeIcon
+            title="Call Brewery"
             style={{ color: "#d4af49" }}
             size="2x"
             icon={faPhone}
@@ -82,6 +90,16 @@ const Brewery = ({ brewery }) => {
         </Card.Link>
         <Card.Link href="#">
           <FontAwesomeIcon
+            title="Lyft"
+            style={{ color: "#d4af49" }}
+            size="2x"
+            icon={farLyft}
+            onClick={handleLyft}
+          />
+        </Card.Link>
+        <Card.Link href="#">
+          <FontAwesomeIcon
+            title="Favorite"
             style={{ color: "#d4af49" }}
             size="2x"
             icon={farHeart}

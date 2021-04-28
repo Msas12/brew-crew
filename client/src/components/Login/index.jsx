@@ -8,10 +8,12 @@ function Login() {
   const [password, setPassword] = useState();
   const [errors, setErrors] = useState();
   const [state, dispatch] = useUserContext();
+  const apiBaseUrl =
+    process.env.NODE_ENV === "development" ? "localhost:3004" : "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3004/api/login", {
+    fetch(apiBaseUrl + "api/login", {
       method: "POST",
       body: JSON.stringify({
         username: username,

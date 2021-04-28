@@ -34,7 +34,9 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose
-  .connect("mongodb://localhost/User", { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/User", {
+    useNewUrlParser: true,
+  })
   .then((_) => console.log("Connected to DB"))
   .catch((err) => console.error("error", err));
 
