@@ -12,7 +12,7 @@
 
 ## Mock-Up
 
-![Gif Of Functionality](./public/imgs/BrewCrew.gif)
+![Gif Of Functionality](./client/public/imgs/BrewCrew.gif)
 
 ## Description
 
